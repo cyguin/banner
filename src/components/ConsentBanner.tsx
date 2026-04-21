@@ -15,7 +15,7 @@ export interface ConsentBannerProps {
 export function ConsentBanner({
   apiBase = '/api/banner',
   userId,
-  theme = 'light',
+  theme = 'dark',
   className = '',
   onAccept,
   onReject,
