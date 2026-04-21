@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConsentBanner
           apiBase="/api/banner"
           userId="user_123"       // optional
-          theme="light"            // or "dark"
+          theme="dark"             // or "light"
           onAccept={() => console.log('accepted')}
           onReject={() => console.log('rejected')}
         />
@@ -67,11 +67,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ## Theming
 
-The banner uses `--cyguin-*` CSS custom properties. Default is light.
+The banner uses `--cyguin-*` CSS custom properties. Default is dark.
 
 ```tsx
-// Dark theme
-<ConsentBanner theme="dark" />
+// Light theme
+<ConsentBanner theme="light" />
 ```
 
 Customise via CSS:
