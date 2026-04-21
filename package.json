@@ -1,6 +1,15 @@
 {
   "name": "@cyguin/banner",
   "version": "0.1.0",
+  "description": "Drop-in in-app banner system for self-hosted Next.js apps",
+  "license": "MIT",
+  "keywords": [
+    "cyguin",
+    "banner",
+    "announcement",
+    "nextjs",
+    "self-hosted"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/cyguin/banner"
@@ -8,13 +17,33 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "exports": {
-    ".": "./dist/index.js",
-    "./next": "./dist/handlers/route.js",
-    "./react": "./dist/components/index.js",
-    "./adapters/sqlite": "./dist/adapters/sqlite.js",
-    "./adapters/postgres": "./dist/adapters/postgres.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./next": {
+      "types": "./dist/next.d.ts",
+      "default": "./dist/next.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    },
+    "./adapters/sqlite": {
+      "types": "./dist/adapters/sqlite.d.ts",
+      "default": "./dist/adapters/sqlite.js"
+    },
+    "./adapters/postgres": {
+      "types": "./dist/adapters/postgres.d.ts",
+      "default": "./dist/adapters/postgres.js"
+    }
   },
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "next": ">=14",
     "react": ">=18",
@@ -23,14 +52,16 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run build && npm run pack:check"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.11",
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "next": "^14.2.0",
+    "next": "^15.5.15",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "tsup": "^8.3.0",
