@@ -1,6 +1,6 @@
 # @cyguin/banner
 
-Cookie consent and GDPR notice drop-in for Next.js. Stores consent decisions in DB for audit trail, renders a dismissible consent banner.
+Cookie consent and GDPR notice for Next.js. Keeps a consent audit trail in your database and renders a dismissible banner.
 
 ## Install
 
@@ -54,8 +54,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <ConsentBanner
           apiBase="/api/banner"
-          userId="user_123"       // optional
-          theme="dark"             // or "light"
+          userId="user_123"
+          theme="dark"
           onAccept={() => console.log('accepted')}
           onReject={() => console.log('rejected')}
         />
@@ -67,14 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ## Theming
 
-The banner uses `--cyguin-*` CSS custom properties. Default is dark.
-
-```tsx
-// Light theme
-<ConsentBanner theme="light" />
-```
-
-Customise via CSS:
+The banner uses `--cyguin-*` CSS variables. Default is dark; switch to light with `theme="light"`. Customize the accent or shape via CSS:
 
 ```css
 .cyguin-banner {
@@ -85,7 +78,7 @@ Customise via CSS:
 
 ## Exports
 
-| Import | What |
+| Import | What you get |
 |--------|------|
 | `@cyguin/banner` | Types: `ConsentRecordData`, `ConsentDecision`, `BannerAdapter` |
 | `@cyguin/banner/next` | `createBannerHandler` |
