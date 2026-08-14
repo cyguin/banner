@@ -1,3 +1,5 @@
+> **This package is no longer actively maintained.** cyguin has narrowed focus to security research (PSCryptoPatterns, PSCertPatterns, PSCMSPatterns). Existing published versions remain on npm and MIT-licensed, but no further releases are planned. See cyguin.com for current work.
+
 # @cyguin/banner
 
 Cookie consent and GDPR notice for Next.js. Keeps a consent audit trail in your database and renders a dismissible banner.
